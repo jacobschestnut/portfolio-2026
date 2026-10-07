@@ -9,6 +9,10 @@
                 <ProjectCard class="mb-6" v-for="project in projects" :key="project.name" :name="project.name" :summary="project.summary"
                     :link="project.link" />
             </div>
+              <div v-else-if="windowWidth < 1024" class="flex flex-col justify-center">
+                <ProjectCard class="mb-6" v-for="project in projects" :key="project.name" :name="project.name" :summary="project.summary"
+                    :link="project.link" />
+            </div>
         </div>
     </div>
 </template>

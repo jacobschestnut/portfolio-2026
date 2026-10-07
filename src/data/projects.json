@@ -1,5 +1,10 @@
 [
     {
+      "name": "NPC Library",
+      "summary": "NPC Library is a database designed to allow TTRPG Game Masters to store NPC data. Includes ability to capture audio.",
+      "link": "https://www.npclibrary.app"
+    },
+    {
       "name": "Daisy",
       "summary": "Daisy is a cocktail recipe app that allows users to easily browse cocktails as well as upload their own. Daisy also features a cocktail randomizer and a cravings quiz to help filter results based on what the user is craving.",
       "link": "https://github.com/jacobschestnut/daisy-client"
