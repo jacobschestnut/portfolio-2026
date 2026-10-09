@@ -19,7 +19,7 @@
   import Weather from './Weather.vue';
 
   const openPdf = () => {
-    const pdfUrl = "/assets/documents/Resume_Jacob_Chestnut.pdf";
+    const pdfUrl = "/assets/documents/JacobChestnutResume.pdf";
     window.open(pdfUrl, "_blank");
   };
 </script>

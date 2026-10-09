@@ -1,41 +1,37 @@
+```vue
 <template>
-  <a :href="props.link" class="project-card-link">
-    <div @mouseover="handleMouseOver" @mouseout="handleMouseOut" class="project-card w-80 h-20 rounded-xl z-0 shadow-xl">
-      <div class="flex flex-col justify-center items-center h-full p-12" v-if="!isHovered">
-        <h1 class="text-center">{{ props.name }}</h1>
+  <div class="project-container">
+    <a :href="props.link" class="project-card-link">
+      <div class="project-card w-80 rounded-xl shadow-xl">
+        <div class="flex justify-center items-center h-full p-12">
+          <h1>{{ props.name }}</h1>
+        </div>
       </div>
-      <div class="flex justify-center items-center p-12" v-if="isHovered">
-        <p>{{ props.summary }}</p>
-      </div>
-    </div>
-  </a>
+    </a>
+
+    <p class="project-summary">
+      {{ props.summary }}
+    </p>
+  </div>
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue';
+import { defineProps } from 'vue';
 
 const props = defineProps([
-  'name', 
-  'summary', 
+  'name',
+  'summary',
   'link'
 ]);
-
-const isHovered = ref(false);
-
-const handleMouseOver = () => {
-  setTimeout(() => {
-    isHovered.value = true;
-  }, 100); 
-};
-
-const handleMouseOut = () => {
-  setTimeout(() => {
-    isHovered.value = false;
-  }, 100);
-};
 </script>
 
 <style scoped>
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .project-card-link {
   text-decoration: none;
   color: inherit;
@@ -52,6 +48,13 @@ const handleMouseOut = () => {
   background-color: #ed6a5e;
 }
 
+.project-summary {
+  width: 20rem;
+  margin-top: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
 h1 {
   font-size: 1.5rem;
   color: #ed6a5e;
@@ -61,11 +64,13 @@ h1 {
   h1 {
     font-size: 3rem;
   }
-}
 
-@media (min-width: 1024px) {
   .project-card {
     height: 30rem;
+  }
+
+  .project-summary {
+    width: 20rem;
   }
 }
 </style>

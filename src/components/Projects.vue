@@ -1,37 +1,28 @@
+```vue
 <template>
-    <div class="projects lg:mb-64">
-        <div class="fade-in project-grid-container flex flex-col justify-center items-center">
-            <div v-if="windowWidth >= 1024" class="project-grid grid grid-cols-2 gap-20">
-                <ProjectCard v-for="project in projects" :key="project.name" :name="project.name" :summary="project.summary"
-                    :link="project.link" />
+    <section class="projects lg:mb-64 px-4 lg:px-0">
+        <div class="fade-in bg-[#2f6661] rounded-3xl shadow-lg px-6 py-10 lg:px-12 lg:py-14">
+            <div class="border-2 border-[#ffaf87] rounded-xl px-6 py-2 w-fit mx-auto mt-5 mb-12">
+                <h2 class="text-3xl lg:text-4xl font-semibold text-center">
+                    Projects
+                </h2>
             </div>
-            <div v-else-if="windowWidth < 1024" class="flex flex-col justify-center">
-                <ProjectCard class="mb-6" v-for="project in projects" :key="project.name" :name="project.name" :summary="project.summary"
-                    :link="project.link" />
-            </div>
-              <div v-else-if="windowWidth < 1024" class="flex flex-col justify-center">
-                <ProjectCard class="mb-6" v-for="project in projects" :key="project.name" :name="project.name" :summary="project.summary"
-                    :link="project.link" />
+            <!-- <div class="h-1 w-20 bg-[#ffaf87] rounded-full mx-auto mt-5 mb-12"></div> -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 justify-items-center">
+                <ProjectCard v-for="project in projects" :key="project.name" :name="project.name"
+                    :summary="project.summary" :link="project.link" />
             </div>
         </div>
-    </div>
+    </section>
 </template>
-  
+
 <script setup>
 import { ref } from 'vue';
 import ProjectCard from './ProjectCard.vue';
 import projectsData from '../data/projects.json';
 import useFadeIn from '../composables/fadein';
 
-const fadeInElements = useFadeIn();
+useFadeIn();
 
 const projects = ref(projectsData);
-
-const windowWidth = ref(window.innerWidth);
 </script>
-  
-<style scoped>
-h1 {
-    color: #ffaf87;
-}
-</style>
